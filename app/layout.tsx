@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 import type { Metadata } from "next";
+import Script from "next/script";
 import ClientProviders from "./ClientProviders";
 import "./globals.css";
 
@@ -47,6 +48,12 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           product-stack stage on the home page. */}
       <body className="bg-paper font-sans leading-[1.65] text-ink antialiased">
         <ClientProviders>{children}</ClientProviders>
+        <Script
+          async
+          src="https://app.anywheretally.com/widget/loader.js"
+          data-widget-key="awt_widget_pk_XbovnEsQtbRCKLh5ifSBkP3AodJKf2-J"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
